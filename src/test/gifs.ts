@@ -48,6 +48,10 @@ const pets: { [key: string]: { colors: string[]; states: string[] } } = {
             'with_ball',
         ],
     },
+    ff_rena: {
+        colors: ['white'],
+        states: ['idle' /* , 'run', 'swipe', 'walk', 'walk_fast', 'with_ball' */],
+    },
     fox: {
         colors: ['red', 'white'],
         states: ['idle', 'run', 'swipe', 'walk', 'walk_fast', 'with_ball'],
