@@ -6,82 +6,30 @@ export class FF_rena extends BasePetType {
     label = 'FF_rena';
     static possibleColors = [PetColor.white];
     sequence = {
-        startingState: States.sitIdle,
+        startingState: States.standRight,
         sequenceStates: [
             {
-                state: States.sitIdle,
-                possibleNextStates: [
-                    States.sitIdle,
-                    /*
-                    States.lie,
-                    States.walkRight,
-                    States.walkLeft,
-                    States.runRight,
-                    States.runLeft,
-                    */
-                ],
-            },
-            /*
-            {
-                state: States.lie,
-                possibleNextStates: [
-                    States.walkRight,
-                    States.walkLeft,
-                    States.runRight,
-                    States.runLeft,
-                ],
+                state: States.standRight,
+                possibleNextStates: [States.standLeft],
             },
             {
-                state: States.walkRight,
-                possibleNextStates: [
-                    States.sitIdle,
-                    States.walkLeft,
-                    States.runLeft,
-                ],
+                state: States.standLeft,
+                possibleNextStates: [States.standRight],
             },
-            {
-                state: States.walkLeft,
-                possibleNextStates: [
-                    States.sitIdle,
-                    States.walkRight,
-                    States.runRight,
-                ],
-            },
-            {
-                state: States.runRight,
-                possibleNextStates: [
-                    States.lie,
-                    States.sitIdle,
-                    States.walkLeft,
-                    States.runLeft,
-                ],
-            },
-            {
-                state: States.runLeft,
-                possibleNextStates: [
-                    States.lie,
-                    States.sitIdle,
-                    States.walkRight,
-                    States.runRight,
-                ],
-            },
-            {
-                state: States.chase,
-                possibleNextStates: [States.idleWithBall],
-            },
-            {
-                state: States.idleWithBall,
-                possibleNextStates: [
-                    States.lie,
-                    States.walkRight,
-                    States.walkLeft,
-                    States.runRight,
-                    States.runLeft,
-                ],
-            },
-            */
         ],
     };
+
+    setAnimation(face: string) {
+        // standRight/standLeftのみ専用画像を参照
+        if (face === 'standRight') {
+            (this as any).el.src = `${this.petRoot}_right.png`;
+        } else if (face === 'standLeft') {
+            (this as any).el.src = `${this.petRoot}_left.png`;
+        } else {
+            // 他は何もしない（またはデフォルト動作）
+        }
+    }
+
     get emoji(): string {
         return '👧';
     }

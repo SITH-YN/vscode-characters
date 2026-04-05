@@ -7,6 +7,7 @@ import { Crab } from './pets/crab';
 import { Deno } from './pets/deno';
 import { Dog } from './pets/dog';
 import { FF_rena } from './pets/ff_rena';
+import { TwoB } from './pets/2b';
 import { Fox } from './pets/fox';
 import { Frog } from './pets/frog';
 import { Horse } from './pets/horse';
@@ -209,6 +210,8 @@ export function createPet(
             return new Dog(...standardPetArguments, PetSpeed.normal);
         case PetType.ff_rena:
             return new FF_rena(...standardPetArguments, PetSpeed.normal);
+        case PetType.twob:
+            return new TwoB(...standardPetArguments, PetSpeed.normal);
         case PetType.fox:
             return new Fox(...standardPetArguments, PetSpeed.fast);
         case PetType.frog:
@@ -258,6 +261,8 @@ export function availableColors(petType: PetType): PetColor[] {
             return Deno.possibleColors;
         case PetType.ff_rena:
             return FF_rena.possibleColors;
+        case PetType.twob:
+            return TwoB.possibleColors;
         case PetType.fox:
             return Fox.possibleColors;
         case PetType.frog:
